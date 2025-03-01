@@ -26,4 +26,12 @@ const observer = new IntersectionObserver(applyAnimation, observerOptions);
 const categories = document.querySelectorAll('.category');
 categories.forEach(category => {
     observer.observe(category);
+
+    // Add click event to trigger animations
+    category.addEventListener('click', function() {
+        // Remove the animation class if already clicked
+        category.classList.remove('clicked');
+        void category.offsetWidth; // Trigger reflow to restart animation
+        category.classList.add('clicked');
+    });
 });
