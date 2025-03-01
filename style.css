@@ -35,14 +35,15 @@ h1 {
     padding: 20px;
     color: #ecf0f1;
     border-radius: 10px;
-    opacity: 0; /* Start hidden */
-    transform: translateY(50px); /* Start slightly below */
-    transition: opacity 0.6s ease, transform 0.6s ease; /* Animation speed */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    cursor: pointer;
 }
 
 .category.animated {
-    opacity: 1; /* Show the element */
-    transform: translateY(0); /* Reset position */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .category h2 {
@@ -75,4 +76,33 @@ button {
 
 button:hover {
     background-color: #c0392b;
+}
+
+/* Animations when category is clicked */
+.category.clicked {
+    animation: scaleUp 0.5s ease, rotateEffect 1s ease forwards;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateEffect {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
